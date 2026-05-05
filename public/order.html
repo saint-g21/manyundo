@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Orders - Manyundo Wholesalers</title>
+  <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+  <nav><a href="dashboard.html">Dashboard</a> <a href="home.html">Home</a></nav>
+  <div class="container">
+    <h2>Your Orders</h2>
+    <div id="ordersList"></div>
+  </div>
+  <script src="js/common.js"></script>
+  <script>
+    if (!requireAuth()) throw new Error('Auth required');
+    getOrders().then(orders => {
+      const container = document.getElementById('ordersList');
+      if (orders.length === 0) {
+        container.innerHTML = '<p>No orders yet.</p>';
+      } else {
+        container.innerHTML = orders.map(o => `
+          <div class="card">
+            <h3>Order #${o.id}</h3>
+            <p>Date: ${new Date(o.created_at).toLocaleString()}</p>
+            <p>Total: $${o.total_amount}</p>
+            <p>Status: ${o.status}</p>
+            ${o.mpesa_receipt ? `<p>Receipt: ${o.mpesa_receipt}</p>` : ''}
+          </div>
+        `).join('');
+      }
+    }).catch(err => console.error(err));
+  </script>
+</body>
+</html>

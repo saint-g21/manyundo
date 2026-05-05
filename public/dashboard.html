@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - Manyundo Wholesalers</title>
+  <link rel="stylesheet" href="css/common.css">
+</head>
+<body class="dashboard-page">
+  <header style="background: rgba(51,51,51,0.85); color:#fff; text-align:center; padding:15px;">
+    <h1>Manyundo Wholesalers22</h1>
+    <p>Your trusted source for quality tools</p>
+  </header>
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="cart.html">Cart</a>
+    <a href="orders.html">Orders</a>
+    <a href="support.html">support</a>
+    <a href="account.html">My Account</a>
+    <a href="#" id="logoutBtn">Logout</a>
+  </nav>
+  <div class="dashboard">
+    <h2>Welcome, <span id="usernameDisplay"></span>!</h2>
+    <div class="card"><h3>Products</h3><p>Explore our catalog</p><button onclick="window.location.href='products.html'">View Products</button></div>
+    <div class="card"><h3>Shopping Cart</h3><p>Review your items</p><button onclick="window.location.href='cart.html'">Go to Cart</button></div>
+    <div class="card"><h3>Orders</h3><p>Track your purchases</p><button onclick="window.location.href='orders.html'">View Orders</button></div>
+  </div>
+  <script src="js/common.js"></script>
+</body>
+</html>
