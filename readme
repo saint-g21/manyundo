@@ -3,3 +3,5 @@ pm2
 node
 npm
 nginx
+
+create a .env file
